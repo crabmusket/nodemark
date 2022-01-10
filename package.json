@@ -2,6 +2,7 @@
   "name": "nodemark",
   "version": "0.3.0",
   "description": "A modern benchmarking library for Node.js",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "$(npm bin)/mocha --exit"

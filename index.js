@@ -1,8 +1,7 @@
-'use strict';
-const benchmark = require('./lib/benchmark');
+import * as benchmark from './lib/benchmark.js';
 const makeAsync = fn => cb => { fn(); cb(); };
 
-module.exports = (fn, setup, duration) => {
+export default (fn, setup, duration) => {
 	if (typeof fn !== 'function') throw new TypeError('Expected benchmark subject to be a function');
 	if (setup == null) setup = fn.length ? cb => { cb(); } : () => {};
 	if (duration == null) duration = 3300;
