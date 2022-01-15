@@ -26,3 +26,11 @@ test('[sync] benchmark a function with setup', t => {
   t.ok(result.min >= 0);
   t.end();
 });
+
+test('[sync] duration changes the number of samples', t => {
+  let func = function() { for (let i = 0; i < 1000; i++) {} };
+  let result = benchmark(func, undefined, 100);
+  let result2 = benchmark(func, undefined, 300);
+  t.ok(result2.count > result.count);
+  t.end();
+});

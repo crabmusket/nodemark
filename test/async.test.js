@@ -24,3 +24,10 @@ test('[async] benchmark a function with setup', async t => {
   t.ok(result.max >= 0);
   t.ok(result.min >= 0);
 });
+
+test('[async] duration changes the number of samples', async t => {
+  let func = function(done) { for (let i = 0; i < 1000; i++) {} done(); };
+  let result = await benchmark(func, undefined, 100);
+  let result2 = await benchmark(func, undefined, 300);
+  t.ok(result2.count > result.count);
+});
