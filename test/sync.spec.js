@@ -12,10 +12,10 @@ test("[sync] benchmark a simple function", (t) => {
     undefined,
     10,
   );
-  t.ok(result.count > 0);
-  t.ok(result.mean >= 0);
-  t.ok(result.max >= 0);
-  t.ok(result.min >= 0);
+  t.ok(result.count > 0, `count > 0, ${result.count}`);
+  t.ok(result.mean >= 0, `mean >= 0, ${result.mean}`);
+  t.ok(result.max >= 0, `max >= 0, ${result.max}`);
+  t.ok(result.min >= 0, `min >= 0, ${result.min}`);
   t.end();
 });
 
@@ -30,10 +30,10 @@ test("[sync] benchmark a function with setup", (t) => {
     },
     10,
   );
-  t.ok(result.count > 0);
-  t.ok(result.mean >= 0);
-  t.ok(result.max >= 0);
-  t.ok(result.min >= 0);
+  t.ok(result.count > 0, `count > 0, ${result.count}`);
+  t.ok(result.mean >= 0, `mean >= 0, ${result.mean}`);
+  t.ok(result.max >= 0, `max >= 0, ${result.max}`);
+  t.ok(result.min >= 0, `min >= 0, ${result.min}`);
   t.end();
 });
 
@@ -43,6 +43,6 @@ test("[sync] duration changes the number of samples", (t) => {
   };
   const result = benchmark(func, undefined, 100);
   const result2 = benchmark(func, undefined, 300);
-  t.ok(result2.count > result.count);
+  t.ok(result2.count > result.count, `result2.count > result.count, ${result2.count}, ${result.count}`);
   t.end();
 });

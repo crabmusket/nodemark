@@ -10,10 +10,10 @@ Deno.test("[async] benchmark a simple function", async () => {
     undefined,
     10,
   );
-  assert(result.count > 0, "count > 0");
-  assert(result.mean >= 0, "mean >= 0");
-  assert(result.max >= 0, "max >= 0");
-  assert(result.min >= 0, "min >= 0");
+  assert(result.count > 0, `count > 0, ${result.count}`);
+  assert(result.mean >= 0, `mean >= 0, ${result.mean}`);
+  assert(result.max >= 0, `max >= 0, ${result.max}`);
+  assert(result.min >= 0, `min >= 0, ${result.min}`);
 });
 
 Deno.test("[async] benchmark a function with setup", async () => {
@@ -28,10 +28,10 @@ Deno.test("[async] benchmark a function with setup", async () => {
     },
     10,
   );
-  assert(result.count > 0, "count > 0");
-  assert(result.mean >= 0, "mean >= 0");
-  assert(result.max >= 0, "max >= 0");
-  assert(result.min >= 0, "min >= 0");
+  assert(result.count > 0, `count > 0, ${result.count}`);
+  assert(result.mean >= 0, `mean >= 0, ${result.mean}`);
+  assert(result.max >= 0, `max >= 0, ${result.max}`);
+  assert(result.min >= 0, `min >= 0, ${result.min}`);
 });
 
 Deno.test("[async] duration changes the number of samples", async () => {
@@ -41,5 +41,5 @@ Deno.test("[async] duration changes the number of samples", async () => {
   };
   const result = await benchmark(func, undefined, 100);
   const result2 = await benchmark(func, undefined, 300);
-  assert(result2.count > result.count, "result2.count > result.count");
+  assert(result2.count > result.count, `result2.count > result.count, ${result2.count}, ${result.count}`);
 });
