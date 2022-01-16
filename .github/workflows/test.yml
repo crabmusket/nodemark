@@ -1,0 +1,31 @@
+name: Run tests
+
+on: [push, pull_request]
+
+jobs:
+  node-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 17.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm test
+
+  deno-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        deno-version: [1.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno-version }}
+      - run: deno test ./test
