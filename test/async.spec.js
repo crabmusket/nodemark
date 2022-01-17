@@ -1,7 +1,4 @@
-import { performance } from "perf_hooks";
-globalThis.performance = performance;
-
-import benchmark from "../index.js";
+import benchmark from "../index.node.js";
 import test from "tape";
 
 test("[async] benchmark a simple function", async (t) => {

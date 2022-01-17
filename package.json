@@ -3,7 +3,8 @@
   "version": "0.3.0",
   "description": "A modern benchmarking library for Node.js",
   "type": "module",
-  "main": "index.js",
+  "main": "index.node.js",
+  "browser": "index.js",
   "scripts": {
     "test": "tape test/*.spec.js"
   },
